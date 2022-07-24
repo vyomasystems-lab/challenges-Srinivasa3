@@ -8,6 +8,7 @@ async def test_mux(dut):
     """Test for mux2"""
     dut.sel.value=0b00011;
     inp= "inp"+str(int(dut.sel.value));
+    print(inp)
     dut.{inp}.value=0b11; 
 
     await Timer(2, units='ns')
