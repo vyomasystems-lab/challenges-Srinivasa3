@@ -12,5 +12,5 @@ async def test_mux(dut):
     await Timer(2, units='ns')
 
     #cocotb.log.info('##### CTB: Develop your test here ########')
-    dut._log.info(f'sel={dut.sel.value}  inp={dut.inp3.value} out={dut.out.value}')
+    dut._log.info(f'sel={int(dut.sel.value)}  inp={dut.inp3.value} out={dut.out.value}')
     assert dut.inp3.value == dut.out.value, "Error"
