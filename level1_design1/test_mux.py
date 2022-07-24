@@ -9,10 +9,10 @@ async def test_mux(dut):
     dut.sel.value=0b00011
     inp= "inp"+str(int(dut.sel.value))
     print(inp)
-    dut.{inp}.value=0b11
+   # dut.{inp}.value=0b11
 
-    await Timer(2, units='ns')
+   # await Timer(2, units='ns')
 
     #cocotb.log.info('##### CTB: Develop your test here ########')
-    dut._log.info(f'sel={int(dut.sel.value)}  inp= {dut.{inp}.value} out={dut.out.value}')
+    #dut._log.info(f'sel={int(dut.sel.value)}  inp= {dut.{inp}.value} out={dut.out.value}')
    # assert dut.inp3.value == dut.out.value, "Error"
