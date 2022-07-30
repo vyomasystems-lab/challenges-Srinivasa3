@@ -7,7 +7,8 @@ from cocotb.triggers import Timer
 async def test_mux(dut):
     """Test for mux2"""
     #dut.sel.value=0b00000
-    dut.inp0.value=0b11 temp=0b11
+    dut.inp0.value=0b11 
+    temp=0b11
     await Timer(2, units='ns')
     try :
         assert dut.inp0.value == dut.out.value, "success"
