@@ -7,7 +7,7 @@ from cocotb.triggers import Timer
 async def test_mux(dut):
     """Test for mux2"""
     # temp=0b11
-    def call(temp):
+    def call(temp,x,y):
             if temp==0b00:
                 temp=0b11
             else:
@@ -15,7 +15,7 @@ async def test_mux(dut):
             try :
                 assert temp == dut.out.value, "success"
             except AssertionError:
-                print ("FAIL:  input missing")
+                print ("FAILTEST case :  SELECTION ={x} INPUT ={y} OUTPUT ={dut.out.value} ")
             return temp
             
    ##         await Timer(2, units='ns')
@@ -24,7 +24,7 @@ async def test_mux(dut):
     dut.inp0.value=0b00
     temp=0b11
     await Timer(2, units='ns')
-    temp=call(temp)
+    temp=call(temp,dut.sel.value,dut.inp0.value)
     dut.sel.value=0b00001
     dut.inp1.value=0b11
     await Timer(2, units='ns')
