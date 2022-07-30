@@ -14,9 +14,9 @@ async def test_mux(dut):
                 temp=0b00
             try :
                 assert temp == dut.out.value, "success"
-                print ("SELECTION ={x} INPUT ={y} OUTPUT ={dut.out.value} ")
+                print (f"SELECTION ={x} INPUT ={y} OUTPUT ={dut.out.value} ")
             except AssertionError:
-                print ("FAILTEST case :  SELECTION ={x} INPUT ={y} OUTPUT ={dut.out.value} ")
+                print (f"FAILTEST case :  SELECTION ={x} INPUT ={y} OUTPUT ={dut.out.value} ")
             return temp
             
    ##         await Timer(2, units='ns')
