@@ -7,7 +7,8 @@ from cocotb.triggers import Timer
 async def test_mux(dut):
     """Test for mux2"""
     #dut.sel.value=0b00000
-    inp=inp+"0"
+    i=0
+    inp="inp"+{i}
     dut.{inp}.value=0b11 
     await Timer(2, units='ns')
     try :
