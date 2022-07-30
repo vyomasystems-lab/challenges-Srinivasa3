@@ -10,7 +10,7 @@ async def test_mux(dut):
     dut.inp0.value=0b1
     await Timer(2, units='ns')
     dut._log.info(dut.inp0.value) 
-    temp=0b1
+    temp=0
     await Timer(2, units='ns')
     try :
         assert temp == dut.out.value, "success"
@@ -21,7 +21,7 @@ async def test_mux(dut):
      ##   dut.inp0.value=0b11
      ##   await Timer(2, units='ns')
     dut.sel.value=0b00000
-    dut.inp0.value=0
+    dut.inp0.value=1
     await Timer(2, units='ns')
     dut._log.info(dut.inp0.value) 
     temp=~temp
