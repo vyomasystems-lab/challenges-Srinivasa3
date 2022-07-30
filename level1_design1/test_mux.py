@@ -29,7 +29,7 @@ async def test_mux(dut):
     print(temp)
     await Timer(2, units='ns')
     try :
-        assert temp == dut.out.value, "success"
+        assert temp == int(dut.out.value), "success"
     except AssertionError:
         print ("FAIL Either slection or input is missing")
 
