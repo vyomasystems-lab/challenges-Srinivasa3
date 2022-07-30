@@ -7,7 +7,7 @@ from cocotb.triggers import Timer
 async def test_mux(dut):
     """Test for mux2"""
     def call():
-    if temp=0b00:
+    if temp==0b00:
         temp=0b11
     else:
         temp=0b00
