@@ -23,6 +23,10 @@ async def test_mux(dut):
     dut.inp0.value=0b00
     await Timer(2, units='ns')
     call()
+    dut.sel.value=0b00001
+    dut.inp1.value=0b11
+    await Timer(2, units='ns')
+    call()
 
 
 
