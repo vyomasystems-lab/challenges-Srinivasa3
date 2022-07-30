@@ -6,8 +6,9 @@ from cocotb.triggers import Timer
 @cocotb.test()
 async def test_mux(dut):
     """Test for mux2"""
-    temp=0b00
+    
     def call():
+            temp=0b00
             try :
                 assert temp == dut.out.value, "success"
             except AssertionError:
