@@ -11,7 +11,7 @@ async def test_mux(dut):
     print(inp)
    # dut.{inp}.value=0b11
 
-   # await Timer(2, units='ns')
+    #await Timer(2, units='ns')
 
     #cocotb.log.info('##### CTB: Develop your test here ########')
     #dut._log.info(f'sel={int(dut.sel.value)}  inp= {dut.{inp}.value} out={dut.out.value}')
