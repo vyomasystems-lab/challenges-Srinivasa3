@@ -15,7 +15,7 @@ async def test_mux(dut):
                 temp=0b11
             else:
                 temp=0b00
-            await Timer(2, units='ns')
+   ##         await Timer(2, units='ns')
     
     dut.sel.value=0b00000
     dut.inp0.value=0b00
