@@ -8,7 +8,7 @@ async def test_mux(dut):
     """Test for mux2"""
     #dut.sel.value=0b00000
     dut.inp0.value=0b1
-    dut_log.info(dut.inp0.value) 
+    dut._log.info(dut.inp0.value) 
     temp=0b1
     await Timer(2, units='ns')
     try :
