@@ -16,10 +16,20 @@ async def test_mux(dut):
         assert temp == dut.out.value, "success"
     except AssertionError:
         print ("FAIL Either slection or input is missing")
-    else :
-        dut.sel.value=0b00000
-        dut.inp0.value=0b11
-        await Timer(2, units='ns')
+   ## else :
+      ##  dut.sel.value=0b00000
+     ##   dut.inp0.value=0b11
+     ##   await Timer(2, units='ns')
+    dut.sel.value=0b00000
+    dut.inp0.value=0b0
+    await Timer(2, units='ns')
+    dut._log.info(dut.inp0.value) 
+    temp=~temp
+    await Timer(2, units='ns')
+    try :
+        assert temp == dut.out.value, "success"
+    except AssertionError:
+        print ("FAIL Either slection or input is missing")
 
 
 
