@@ -13,7 +13,7 @@ async def test_mux(dut):
             else:
                 temp=0b00
             try :
-                assert temp == dut.out.value, "success"
+                assert x == dut.out.value, "success"
                 print (f"SELECTION ={x} INPUT ={y} OUTPUT ={dut.out.value} ")
             except AssertionError:
                 print (f"FAILTEST case :  SELECTION ={x} INPUT ={y} OUTPUT ={dut.out.value} ")
