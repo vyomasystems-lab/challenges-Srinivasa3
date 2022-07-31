@@ -22,7 +22,7 @@ async def test_mux(dut):
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp0.value)
     dut.sel.value=0b00001
-    dut.inp1.value=0b00
+    dut.inp1.value=0b10
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp1.value)
     dut.sel.value=0b00010
@@ -30,7 +30,7 @@ async def test_mux(dut):
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp2.value)
     dut.sel.value=0b00011
-    dut.inp3.value=0b00
+    dut.inp3.value=0b10
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp3.value)
     dut.sel.value=0b00100
@@ -38,7 +38,7 @@ async def test_mux(dut):
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp4.value)
     dut.sel.value=0b00101
-    dut.inp5.value=0b00
+    dut.inp5.value=0b10
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp5.value)
     dut.sel.value=0b00110
@@ -46,7 +46,7 @@ async def test_mux(dut):
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp6.value)
     dut.sel.value=0b00111
-    dut.inp7.value=0b00
+    dut.inp7.value=0b10
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp7.value) 
     dut.sel.value=0b01000
@@ -54,7 +54,7 @@ async def test_mux(dut):
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp8.value)
     dut.sel.value=0b01001
-    dut.inp9.value=0b00
+    dut.inp9.value=0b10
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp9.value) 
     dut.sel.value=0b01010
@@ -62,7 +62,7 @@ async def test_mux(dut):
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp10.value)
     dut.sel.value=0b01011
-    dut.inp11.value=0b00
+    dut.inp11.value=0b10
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp11.value)
     dut.sel.value=0b01100
@@ -70,7 +70,7 @@ async def test_mux(dut):
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp12.value)
     dut.sel.value=0b01101
-    dut.inp13.value=0b00
+    dut.inp13.value=0b10
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp13.value) 
     dut.sel.value=0b01110
@@ -78,7 +78,7 @@ async def test_mux(dut):
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp14.value)
     dut.sel.value=0b01111
-    dut.inp15.value=0b00
+    dut.inp15.value=0b10
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp15.value)
     dut.sel.value=0b10000
@@ -86,7 +86,7 @@ async def test_mux(dut):
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp16.value)
     dut.sel.value=0b10001
-    dut.inp17.value=0b00
+    dut.inp17.value=0b10
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp17.value)
     dut.sel.value=0b10010
@@ -94,7 +94,7 @@ async def test_mux(dut):
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp18.value)
     dut.sel.value=0b10011
-    dut.inp19.value=0b00
+    dut.inp19.value=0b10
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp19.value) 
     dut.sel.value=0b10100
@@ -102,7 +102,7 @@ async def test_mux(dut):
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp20.value)
     dut.sel.value=0b10101
-    dut.inp21.value=0b00
+    dut.inp21.value=0b10
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp21.value)
     dut.sel.value=0b10110
@@ -110,7 +110,7 @@ async def test_mux(dut):
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp22.value)
     dut.sel.value=0b10111
-    dut.inp23.value=0b00
+    dut.inp23.value=0b10
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp23.value) 
     dut.sel.value=0b11000
@@ -118,7 +118,7 @@ async def test_mux(dut):
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp24.value)
     dut.sel.value=0b11001
-    dut.inp25.value=0b00
+    dut.inp25.value=0b10
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp25.value)
     dut.sel.value=0b11010
@@ -126,7 +126,7 @@ async def test_mux(dut):
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp26.value)
     dut.sel.value=0b11011
-    dut.inp27.value=0b00
+    dut.inp27.value=0b10
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp27.value) 
     dut.sel.value=0b11100
@@ -134,12 +134,10 @@ async def test_mux(dut):
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp28.value)
     dut.sel.value=0b11101
-    dut.inp29.value=0b00
+    dut.inp29.value=0b10
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp29.value) 
     dut.sel.value=0b11110
     dut.inp30.value=0b11
     await Timer(2, units='ns')
     call(dut.sel.value,dut.inp30.value)
-    
-
