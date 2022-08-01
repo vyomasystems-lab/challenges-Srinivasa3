@@ -11,7 +11,7 @@ async def test_MUX_SELECTION0(dut):
     dut.inp0.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp0.value)}, DUT={(dut.out.value)}')
-    assert dut.inp0.value == dut.out.value, "Output is not matching"
+    assert dut.inp0.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp0.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION1(dut):
@@ -20,7 +20,7 @@ async def test_MUX_SELECTION1(dut):
     dut.inp1.value = 0b11
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp1.value)}, DUT={(dut.out.value)}')
-    assert dut.inp1.value == dut.out.value, "Output is not matching"
+    assert dut.inp1.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp1.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION2(dut):
@@ -29,7 +29,7 @@ async def test_MUX_SELECTION2(dut):
     dut.inp2.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp2.value)}, DUT={(dut.out.value)}')
-    assert dut.inp2.value == dut.out.value, "Output is not matching"
+    assert dut.inp2.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp2.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION3(dut):
@@ -38,7 +38,7 @@ async def test_MUX_SELECTION3(dut):
     dut.inp3.value = 0b11
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp3.value)}, DUT={(dut.out.value)}')
-    assert dut.inp3.value == dut.out.value, "Output is not matching"
+    assert dut.inp3.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp3.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION4(dut):
@@ -47,7 +47,7 @@ async def test_MUX_SELECTION4(dut):
     dut.inp4.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp4.value)}, DUT={(dut.out.value)}')
-    assert dut.inp4.value == dut.out.value, "Output is not matching"
+    assert dut.inp4.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp4.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION5(dut):
@@ -56,7 +56,7 @@ async def test_MUX_SELECTION5(dut):
     dut.inp5.value = 0b11
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp5.value)}, DUT={(dut.out.value)}')
-    assert dut.inp5.value == dut.out.value, "Output is not matching"
+    assert dut.inp5.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp5.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION6(dut):
@@ -65,7 +65,7 @@ async def test_MUX_SELECTION6(dut):
     dut.inp6.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp6.value)}, DUT={(dut.out.value)}')
-    assert dut.inp6.value == dut.out.value, "Output is not matching"
+    assert dut.inp6.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp6.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION7(dut):
@@ -74,7 +74,7 @@ async def test_MUX_SELECTION7(dut):
     dut.inp7.value = 0b11
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp7.value)}, DUT={(dut.out.value)}')
-    assert dut.inp7.value == dut.out.value, "Output is not matching"
+    assert dut.inp7.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp7.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION8(dut):
@@ -83,7 +83,7 @@ async def test_MUX_SELECTION8(dut):
     dut.inp8.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp8.value)}, DUT={(dut.out.value)}')
-    assert dut.inp8.value == dut.out.value, "Output is not matching"
+    assert dut.inp8.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp8.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION9(dut):
@@ -92,7 +92,7 @@ async def test_MUX_SELECTION9(dut):
     dut.inp9.value = 0b11
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp9.value)}, DUT={(dut.out.value)}')
-    assert dut.inp9.value == dut.out.value, "Output is not matching"
+    assert dut.inp9.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp9.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION10(dut):
@@ -101,7 +101,7 @@ async def test_MUX_SELECTION10(dut):
     dut.inp10.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp10.value)}, DUT={(dut.out.value)}')
-    assert dut.inp10.value == dut.out.value, "Output is not matching"
+    assert dut.inp10.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp10.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION11(dut):
@@ -110,7 +110,7 @@ async def test_MUX_SELECTION11(dut):
     dut.inp11.value = 0b11
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp11.value)}, DUT={(dut.out.value)}')
-    assert dut.inp11.value == dut.out.value, "Output is not matching"
+    assert dut.inp11.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp11.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION12(dut):
@@ -119,7 +119,7 @@ async def test_MUX_SELECTION12(dut):
     dut.inp12.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp12.value)}, DUT={(dut.out.value)}')
-    assert dut.inp12.value == dut.out.value, "Output is not matching"
+    assert dut.inp12.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp12.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION13(dut):
@@ -128,7 +128,7 @@ async def test_MUX_SELECTION13(dut):
     dut.inp13.value = 0b11
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp13.value)}, DUT={(dut.out.value)}')
-    assert dut.inp13.value == dut.out.value, "Output is not matching"
+    assert dut.inp13.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp13.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION14(dut):
@@ -137,7 +137,7 @@ async def test_MUX_SELECTION14(dut):
     dut.inp14.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp14.value)}, DUT={(dut.out.value)}')
-    assert dut.inp14.value == dut.out.value, "Output is not matching"
+    assert dut.inp14.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp14.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION15(dut):
@@ -146,7 +146,7 @@ async def test_MUX_SELECTION15(dut):
     dut.inp15.value = 0b11
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp15.value)}, DUT={(dut.out.value)}')
-    assert dut.inp15.value == dut.out.value, "Output is not matching"
+    assert dut.inp15.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp15.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION16(dut):
@@ -155,7 +155,7 @@ async def test_MUX_SELECTION16(dut):
     dut.inp16.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp16.value)}, DUT={(dut.out.value)}')
-    assert dut.inp16.value == dut.out.value, "Output is not matching"
+    assert dut.inp16.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp16.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION17(dut):
@@ -164,7 +164,7 @@ async def test_MUX_SELECTION17(dut):
     dut.inp17.value = 0b11
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp17.value)}, DUT={(dut.out.value)}')
-    assert dut.inp17.value == dut.out.value, "Output is not matching"
+    assert dut.inp17.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp17.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION18(dut):
@@ -173,7 +173,7 @@ async def test_MUX_SELECTION18(dut):
     dut.inp18.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp18.value)}, DUT={(dut.out.value)}')
-    assert dut.inp18.value == dut.out.value, "Output is not matching"
+    assert dut.inp18.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp18.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION19(dut):
@@ -182,7 +182,7 @@ async def test_MUX_SELECTION19(dut):
     dut.inp19.value = 0b11
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp19.value)}, DUT={(dut.out.value)}')
-    assert dut.inp19.value == dut.out.value, "Output is not matching"
+    assert dut.inp19.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp19.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION20(dut):
@@ -191,7 +191,7 @@ async def test_MUX_SELECTION20(dut):
     dut.inp20.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp20.value)}, DUT={(dut.out.value)}')
-    assert dut.inp20.value == dut.out.value, "Output is not matching"
+    assert dut.inp20.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp20.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION21(dut):
@@ -200,7 +200,7 @@ async def test_MUX_SELECTION21(dut):
     dut.inp21.value = 0b11
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp21.value)}, DUT={(dut.out.value)}')
-    assert dut.inp21.value == dut.out.value, "Output is not matching"
+    assert dut.inp21.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp21.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION22(dut):
@@ -209,7 +209,7 @@ async def test_MUX_SELECTION22(dut):
     dut.inp22.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp22.value)}, DUT={(dut.out.value)}')
-    assert dut.inp22.value == dut.out.value, "Output is not matching"
+    assert dut.inp22.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp22.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION23(dut):
@@ -218,7 +218,7 @@ async def test_MUX_SELECTION23(dut):
     dut.inp23.value = 0b11
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp23.value)}, DUT={(dut.out.value)}')
-    assert dut.inp23.value == dut.out.value, "Output is not matching"
+    assert dut.inp23.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp23.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION24(dut):
@@ -227,7 +227,7 @@ async def test_MUX_SELECTION24(dut):
     dut.inp24.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp24.value)}, DUT={(dut.out.value)}')
-    assert dut.inp24.value == dut.out.value, "Output is not matching"
+    assert dut.inp24.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp24.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION25(dut):
@@ -236,7 +236,7 @@ async def test_MUX_SELECTION25(dut):
     dut.inp25.value = 0b11
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp25.value)}, DUT={(dut.out.value)}')
-    assert dut.inp25.value == dut.out.value, "Output is not matching"
+    assert dut.inp25.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp25.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION26(dut):
@@ -245,7 +245,7 @@ async def test_MUX_SELECTION26(dut):
     dut.inp26.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp26.value)}, DUT={(dut.out.value)}')
-    assert dut.inp26.value == dut.out.value, "Output is not matching"
+    assert dut.inp26.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp26.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION27(dut):
@@ -254,7 +254,7 @@ async def test_MUX_SELECTION27(dut):
     dut.inp27.value = 0b11
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp27.value)}, DUT={(dut.out.value)}')
-    assert dut.inp27.value == dut.out.value, "Output is not matching"
+    assert dut.inp27.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp27.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION28(dut):
@@ -263,7 +263,7 @@ async def test_MUX_SELECTION28(dut):
     dut.inp28.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp28.value)}, DUT={(dut.out.value)}')
-    assert dut.inp28.value == dut.out.value, "Output is not matching"
+    assert dut.inp28.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp28.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION29(dut):
@@ -272,7 +272,7 @@ async def test_MUX_SELECTION29(dut):
     dut.inp29.value = 0b11
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp29.value)}, DUT={(dut.out.value)}')
-    assert dut.inp29.value == dut.out.value, "Output is not matching"
+    assert dut.inp29.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp29.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_MUX_SELECTION30(dut):
@@ -281,4 +281,4 @@ async def test_MUX_SELECTION30(dut):
     dut.inp30.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp30.value)}, DUT={(dut.out.value)}')
-    assert dut.inp30.value == dut.out.value, "Output is not matching"
+    assert dut.inp30.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp30.value)} Out = {(dut.out.value)}"
