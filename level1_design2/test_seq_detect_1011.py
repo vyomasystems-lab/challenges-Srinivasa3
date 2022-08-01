@@ -43,7 +43,7 @@ async def test_SEQ_1(dut):
     assert dut.seq_seen.value == 0, "Design not proper"
 
 @cocotb.test()
-async def test_seq_3(dut):
+async def test_SEQ_2(dut):
     
     clock = Clock(dut.clk, 10, units="us")  # Create a 10us period clock on port clk
     cocotb.start_soon(clock.start())        # Start the clock
@@ -61,7 +61,7 @@ async def test_seq_3(dut):
     assert dut.seq_seen.value == 0, "Design not proper"
 
 @cocotb.test()
-async def test_seq_4(dut):
+async def test_SEQ_3(dut):
     
     clock = Clock(dut.clk, 10, units="us")  # Create a 10us period clock on port clk
     cocotb.start_soon(clock.start())        # Start the clock
