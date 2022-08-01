@@ -6,7 +6,7 @@ PWD=$(shell pwd)
 
 VERILOG_SOURCES = $(PWD)/GCD.v               # provide your design path
 
-TOPLEVEL :=GCD_datapath          # design file
+TOPLEVEL :=controller         # design file
 MODULE   :=test_GCD    # test file
 
 include $(shell cocotb-config --makefiles)/Makefile.sim
