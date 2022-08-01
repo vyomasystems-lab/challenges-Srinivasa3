@@ -73,14 +73,13 @@ In the always block of mux design, the selection line 5'b01101 is assigned with 
 For the adder design, the logic should be ``a + b`` instead of ``a - b`` as in the design code.
 
 ## Design Fix
+
+Failed design file mux.v
+
+![image](https://user-images.githubusercontent.com/109664284/182104544-fea20dcb-b844-4deb-ac7c-78c0140408b8.png)
+
 Updating the design and re-running the test makes the test pass.
 
-![](https://i.imgur.com/5XbL1ZH.png)
+![image](https://user-images.githubusercontent.com/109664284/182103841-d29f30b6-d9c3-4b72-8b8f-336198846c16.png)
 
-The updated design is checked in as adder_fix.v
-
-## Verification Strategy
-
-## Is the verification complete ?
-
-
+The updated design is checked in as mux_fixed.v
