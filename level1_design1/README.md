@@ -1,32 +1,45 @@
-# Adder Design Verification
+# Multiplexer Design Verification
 
 The verification environment is setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
 
-*Make sure to include the Gitpod id in the screenshot*
 
-![](https://i.imgur.com/miWGA1o.png)
+![image](https://user-images.githubusercontent.com/109664284/182092227-f7b15b25-06d5-44b5-a450-817094690cbf.png)
+
 
 ## Verification Environment
 
-The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test (adder module here) which takes in 4-bit inputs *a* and *b* and gives 5-bit output *sum*
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test(DUT - mux module) which takes in 5-bit selection line *sel* and 2-bit input lines *inp0-inp30* and gives 2-bit output *out*
 
 The values are assigned to the input port using 
 ```
-dut.a.value = 7
-dut.b.value = 5
-```
+dut.sel.value = 0b01101
+dut.inp13.value = 0b11
 
-The assert statement is used for comparing the adder's outut to the expected value.
+```
+The assert statement is used for comparing the mux's output to the expected value i.e. given input.
 
 The following error is seen:
 ```
-assert dut.sum.value == A+B, "Adder result is incorrect: {A} + {B} != {SUM}, expected value={EXP}".format(
-                     AssertionError: Adder result is incorrect: 7 + 5 != 2, expected value=12
+ assert dut.inp13.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp13.value)} Out = {(dut.out.value)}"
+                     AssertionError: Output and the Input doesn't matching for the same selection line . Sel = (01101) Inp = 11 Out = 10
 ```
-## Test Scenario **(Important)**
-- Test Inputs: a=7 b=5
-- Expected Output: sum=12
-- Observed Output in the DUT dut.sum=2
+## Failed Scenarios
+
+
+## Test Scenario_01
+- Test Inputs: sel=0b01100, inp12=0b10
+- Expected Output: out=0b10
+- Observed Output in the DUT dut.out=0b00
+
+## Test Scenario_02
+- Test Inputs: sel=0b01101, inp13=0b11
+- Expected Output: out=0b11
+- Observed Output in the DUT dut.out=0b10
+
+## Test Scenario_03
+- Test Inputs: sel=0b11110, inp30=0b10
+- Expected Output: out=0b10
+- Observed Output in the DUT dut.out=0b00
 
 Output mismatches for the above inputs proving that there is a design bug
 
@@ -34,10 +47,28 @@ Output mismatches for the above inputs proving that there is a design bug
 Based on the above test input and analysing the design, we see the following
 
 ```
- always @(a or b) 
+ always @(sel or inp0  or inp1 or  inp2 or inp3 or inp4 or inp5 or inp6 or
+            inp7 or inp8 or inp9 or inp10 or inp11 or inp12 or inp13 or 
+            inp14 or inp15 or inp16 or inp17 or inp18 or inp19 or inp20 or
+            inp21 or inp22 or inp23 or inp24 or inp25 or inp26 or inp27 or 
+            inp28 or inp29 or inp30 )
+
   begin
-    sum = a - b;             ====> BUG
+    case(sel)
+      ...
+      ...
+      ...
+      5'b01101: out = inp12           ====> BUG
+      5'b01101: out = inp13           ====> BUG
+      ...
+      ...
+      5'b11101: out = inp29;          ====> BUG
+      default: out = 0;
+    endcase
   end
+  
+```
+In the always block of mux design, the selection line 5'b01101 is assigned with two input lines inp12 and inp13, full case description is not done in the design, selection line 5'b01100 and 5'b11110 are not defined.
 ```
 For the adder design, the logic should be ``a + b`` instead of ``a - b`` as in the design code.
 
