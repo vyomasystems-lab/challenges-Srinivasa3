@@ -90,10 +90,10 @@ In the always block of sequence detector design, three invalid transition of sta
 
 Failed design file seq_detect_1011.v
 
-![image](https://user-images.githubusercontent.com/109664284/182149183-3ad6803a-41d7-40b1-a37f-f8a150b8937d.png)
+![image](https://user-images.githubusercontent.com/109664284/182150696-e80c5250-bbb5-45c9-a5e4-75d8cf72f1da.png)
 
 Updating the design and re-running the test makes the test pass.
 
-![image](https://user-images.githubusercontent.com/109664284/182148649-d4b1e433-e972-4df4-9b9e-9aae86ab59b0.png)
+![image](https://user-images.githubusercontent.com/109664284/182150623-efc79284-55c8-4e95-9d8b-8317edd4649c.png)
 
 The updated design is checked in as seq_detect_1011_pass.v
