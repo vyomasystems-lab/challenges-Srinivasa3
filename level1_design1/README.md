@@ -69,8 +69,6 @@ Based on the above test input and analysing the design, we see the following
   
 ```
 In the always block of mux design, the selection line 5'b01101 is assigned with two input lines inp12 and inp13, full case description is not done in the design, selection line 5'b01100 and 5'b11110 are not defined.
-```
-For the adder design, the logic should be ``a + b`` instead of ``a - b`` as in the design code.
 
 ## Design Fix
 
