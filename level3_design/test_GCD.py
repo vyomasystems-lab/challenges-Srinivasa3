@@ -16,7 +16,7 @@ async def GCD_test(dut):
     A=143
     B=78
     await FallingEdge(dut.clk)
-    dut.Start.value=0b1
+    dut.start.value=0b1
     await FallingEdge(dut.clk)
     dut.data_in.value=A
     dut.data_in.value=B
