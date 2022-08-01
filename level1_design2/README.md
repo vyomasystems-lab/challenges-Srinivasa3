@@ -1,4 +1,4 @@
-# Multiplexer 31:1 Design Verification
+# Seq_detect_1011 Design Verification
 
 The verification environment is setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
 
@@ -8,38 +8,48 @@ The verification environment is setup using [Vyoma's UpTickPro](https://vyomasys
 
 ## Verification Environment
 
-The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test(DUT - mux module) which takes in 5-bit selection line *sel* and 2-bit input lines *inp0-inp30* and gives 2-bit output *out*
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test(DUT - seq_detect_1011 module) which takes 1 bit input *inp_bit* at every negetive edge of the clock *clk* and the corresponding current state output *current_state* is observed in positive edge of clock. The whole operation carried out with active low *reset*.
 
 The values are assigned to the input port using 
 ```
-dut.sel.value = 0b01101
-dut.inp13.value = 0b11
+    dut.reset.value = 1
+    await FallingEdge(dut.clk) 
+    dut.reset.value = 0
+    dut.inp_bit.value = 0
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
 
 ```
 The assert statement is used for comparing the mux's output to the expected value i.e. given input.
 
 The following error is seen:
 ```
- assert dut.inp13.value == dut.out.value, f"Output and the Input doesn't matching for the same selection line . Sel = ({dut.sel.value}) Inp = {(dut.inp13.value)} Out = {(dut.out.value)}"
-                     AssertionError: Output and the Input doesn't matching for the same selection line . Sel = (01101) Inp = 11 Out = 10
+ assert dut.current_state.value == 0b001, "State Transition not working"
+                     AssertionError: State Transition not working
+```
+```
+assert dut.seq_seen.value == 0, "Design not proper"
+                     AssertionError: Design not proper
 ```
 ## Failed Scenarios
 
 
 ## Test Scenario_01
-- Test Inputs: sel=0b01100, inp12=0b10
-- Expected Output: out=0b10
-- Observed Output in the DUT dut.out=0b00
+- Test Inputs: reset=0 inp_bit=0,1,1
+- Expected Output: seq_seen = 0, next_state = 001 
+- Observed Output in the DUT dut.seq_seen=0, dut.next_state = 000
 
 ## Test Scenario_02
-- Test Inputs: sel=0b01101, inp13=0b11
-- Expected Output: out=0b11
-- Observed Output in the DUT dut.out=0b10
+- Test Inputs: reset=0 inp_bit=0,1,0,0,1,0,1,0
+- Expected Output: seq_seen = 0, next_state = 010 
+- Observed Output in the DUT dut.seq_seen=0, dut.next_state = 000
 
 ## Test Scenario_03
-- Test Inputs: sel=0b11110, inp30=0b10
-- Expected Output: out=0b10
-- Observed Output in the DUT dut.out=0b00
+- Test Inputs: reset=0 inp_bit=0,1,0,0,1,0,1,1,1
+- Expected Output: seq_seen = 0, next_state = 001 
+- Observed Output in the DUT dut.seq_seen=0, dut.next_state = 000
 
 Output mismatches for the above inputs proving that there is a design bug
 
@@ -47,37 +57,43 @@ Output mismatches for the above inputs proving that there is a design bug
 Based on the above test input and analysing the design, we see the following
 
 ```
- always @(sel or inp0  or inp1 or  inp2 or inp3 or inp4 or inp5 or inp6 or
-            inp7 or inp8 or inp9 or inp10 or inp11 or inp12 or inp13 or 
-            inp14 or inp15 or inp16 or inp17 or inp18 or inp19 or inp20 or
-            inp21 or inp22 or inp23 or inp24 or inp25 or inp26 or inp27 or 
-            inp28 or inp29 or inp30 )
-
-  begin
-    case(sel)
-      ...
-      ...
-      ...
-      5'b01101: out = inp12           ====> BUG
-      5'b01101: out = inp13           ====> BUG
-      ...
-      ...
-      5'b11101: out = inp29;          ====> BUG
-      default: out = 0;
-    endcase
-  end
-  
+SEQ_1:
+      begin
+        if(inp_bit == 1)
+          next_state = IDLE;   === BUG
+        else
+          next_state = SEQ_10;
+      end
+ ....
+ ....
+ SEQ_101:
+      begin
+        if(inp_bit == 1)
+          next_state = SEQ_1011;
+        else
+          next_state = IDLE;  === BUG
+      end
+  ....
+  ....
+  SEQ_1011:
+      begin
+        next_state = IDLE;   === BUG
+      end
+ 
 ```
-In the always block of mux design, the selection line 5'b01101 is assigned with two input lines inp12 and inp13, full case description is not done in the design, selection line 5'b01100 and 5'b11110 are not defined.
+In the always block of sequence detector design, three invalid transition of states are identified. 
+1. In the state *SEQ_1* if we give input bit again as "1" then the next state moved to *IDLE* but it as per expected it should remains in the same state i.e. *SEQ_1*.
+2. In the state *SEQ_101* if we give input bit again as "0" then the next state moved to *IDLE* but it as per expected it should moved to *SEQ_10*.
+3. In the state *SEQ_1011* for both the give input state moved to *IDLE* which is invalid. for input "1" it has to move to *SEQ_1* state and for "0" move to *IDLE* state.
 
 ## Design Fix
 
-Failed design file mux.v
+Failed design file seq_detect_1011.v
 
-![image](https://user-images.githubusercontent.com/109664284/182104544-fea20dcb-b844-4deb-ac7c-78c0140408b8.png)
+![image](https://user-images.githubusercontent.com/109664284/182149183-3ad6803a-41d7-40b1-a37f-f8a150b8937d.png)
 
 Updating the design and re-running the test makes the test pass.
 
-![image](https://user-images.githubusercontent.com/109664284/182103841-d29f30b6-d9c3-4b72-8b8f-336198846c16.png)
+![image](https://user-images.githubusercontent.com/109664284/182148649-d4b1e433-e972-4df4-9b9e-9aae86ab59b0.png)
 
-The updated design is checked in as mux_fixed.v
+The updated design is checked in as seq_detect_1011_pass.v
