@@ -8,7 +8,7 @@ The verification environment is setup using [Vyoma's UpTickPro](https://vyomasys
 
 ## Verification Environment
 
-The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test(DUT - seq_detect_1011 module) which takes 1 bit input *inp_bit* at every negetive edge of the clock *clk* and the corresponding current state output *current_state* is observed in positive edge of clock. The whole operation carried out with active low *reset*.
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test(DUT - seq_detect_1011 module) which takes 1 bit input *inp_bit* at every negetive edge of the clock *clk* and the corresponding current state output *current_state* and *seq_seen* is observed in positive edge of clock. The whole operation carried out with active low *reset*.
 
 The values are assigned to the input port using 
 ```
